@@ -1,0 +1,73 @@
+name: Run Selenium Script
+
+on:
+  workflow_dispatch:  # Allows manual execution
+  push:
+    branches:
+      - main  # Only runs on main branch pushes
+
+jobs:
+  run-selenium:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read  # Restrict repo access to read-only
+    #container:
+     # image: selenium/standalone-firefox:latest  # Prebuilt image with Selenium and Firefox
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Dependencies
+        run: pip install -r .github/workflows/requirements.txt
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Install ChromeDriver
+        run: |
+          # Get installed Chrome version (full version)
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          
+          # Fetch the latest available ChromeDriver version (without relying on LATEST_RELEASE)
+          CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json" | jq -r '.versions[] | select(.version=="'"$CHROME_VERSION"'") | .downloads.chromedriver[] | select(.platform=="linux64") | .url')
+      
+          if [ -z "$CHROMEDRIVER_VERSION" ]; then
+            echo "Failed to find a ChromeDriver version for Chrome $CHROME_VERSION"
+            exit 1
+          fi
+      
+          echo "Downloading ChromeDriver from: $CHROMEDRIVER_VERSION"
+      
+          # Download ChromeDriver
+          wget -q "$CHROMEDRIVER_VERSION" -O chromedriver.zip
+      
+          if [ $? -ne 0 ]; then
+            echo "Failed to download ChromeDriver. Exiting."
+            exit 1
+          fi
+      
+          # Extract and move ChromeDriver
+          unzip -o chromedriver.zip
+          chmod +x chromedriver-linux64/chromedriver
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+
+
+      - name: Debug Secrets
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+        run: echo "USERNAME is $USERNAME"
+        
+      - name: Install Selenium
+        run: pip install selenium  
+      - name: Run Selenium Script
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: python .github/workflows/websitebotex.py  # Change to your script filename
+        

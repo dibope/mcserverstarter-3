@@ -1,0 +1,62 @@
+name: Run Selenium Script
+
+on:
+  workflow_dispatch:  # Allows manual execution
+  push:
+    branches:
+      - main  # Only runs on main branch pushes
+
+jobs:
+  run-selenium:
+    runs-on: ubuntu-latest
+    #container:
+     # image: selenium/standalone-firefox:latest  # Prebuilt image with Selenium and Firefox
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check Firefox Path
+        run: which firefox
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Cache Python Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Print Cache Key
+        run: echo "Cache Key: ${{ steps.cache.outputs.cache-hit }}"
+        
+      - name: Install Dependencies
+        run: pip install -r .github/workflows/requirements.txt
+      - name: Install Firefox
+        run: sudo apt-get install -y firefox
+
+      - name: Install GeckoDriver
+        run: |
+            LATEST_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r ".tag_name")
+            wget "https://github.com/mozilla/geckodriver/releases/download/$LATEST_VERSION/geckodriver-$LATEST_VERSION-linux64.tar.gz"
+            tar -xvzf "geckodriver-$LATEST_VERSION-linux64.tar.gz"
+            chmod +x geckodriver
+            sudo mv geckodriver /usr/local/bin/
+      - name: Debug Secrets
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+        run: echo "USERNAME is $USERNAME"
+        
+      - name: Install Selenium
+        run: pip install selenium  
+
+      - name: Run Selenium Script
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: python .github/workflows/websitebotex.py  # Change to your script filename
+        

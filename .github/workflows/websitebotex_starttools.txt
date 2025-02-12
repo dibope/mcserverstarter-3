@@ -1,0 +1,41 @@
+    '''
+    starttime = time.perf_counter()
+    endtime = time.perf_counter()
+    exectime = endtime - starttime
+    print(exectime)
+    '''
+
+
+
+
+    # Log button info
+    print(f"Found button: {startworld.is_displayed()}")  # Check if it's displayed
+    print(f"Button location: {startworld.location}")  # Get the position
+    print(f"Button size: {startworld.size}")  # Check its size
+
+    # Check for overlays
+    button_state = driver.execute_script(
+    var btn = document.querySelector("button.btn-primary");
+    return {
+        disabled: btn.disabled,
+        hidden: btn.offsetWidth === 0 || btn.offsetHeight === 0
+    };
+    )#comment the code in document.querySelector to work
+    print(f"Button state: {button_state}")
+
+    overlay_check = driver.execute_script('''
+    var overlays = document.querySelectorAll('div[style*="position: fixed"], div[style*="z-index"]');
+    return overlays.length > 0;
+    ''')
+    if button_state['disabled']:
+        print("Button is disabled!")
+    elif button_state['hidden']:
+        print("Button is hidden!")
+    else:
+        print("Button should be clickable.")
+    
+    if overlay_check:
+        print("Possible overlay is blocking the button!")
+    else:
+        print("No overlay detected.")
+    
