@@ -70,4 +70,6 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python .github/workflows/websitebotex.py  # Change to your script filename
+      - name: Run failing script
+        run: exit 1
         
