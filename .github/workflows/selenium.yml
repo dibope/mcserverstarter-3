@@ -1,4 +1,4 @@
-name: Start the Server
+name: Start the mc Server
 
 on:
   workflow_dispatch:  # Allows manual execution
