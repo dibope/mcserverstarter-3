@@ -1,7 +1,7 @@
-### Runs entirely on github no need to download
+#### Runs entirely on github no need to download
 ##### To use it for ur seedloaf server:
 
-1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur eamil and seddloaf password)
+1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur email and seddloaf password)
 
 ( No one can see them after u set so it's really a secret)
 
