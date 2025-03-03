@@ -1,6 +1,8 @@
 To use it for ur seedloaf server:
 
-1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.( No one can see them after u set so it's really a secret)
+1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur eamil and seddloaf password)
+
+( No one can see them after u set so it's really a secret)
 
 2)Click Start the mc Server then Run workflow. Refresh page to view the run.
 
