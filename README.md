@@ -1,4 +1,5 @@
-#### Runs entirely on github no need to download
+### Runs entirely on github no need to download 
+#### (only thing u need to do is add email and password)
 ##### To use it for ur seedloaf server:
 
 1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur email and seddloaf password)
