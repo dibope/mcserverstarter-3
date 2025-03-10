@@ -77,7 +77,7 @@ try:
     username.send_keys(Keys.RETURN)
     
     # Optional: Wait to observe behavior (debugging)
-    time.sleep(4)
+    time.sleep(5)
     print("entered username")
 except Exception as e:
     print(f"Error occurred(username): {e}")
