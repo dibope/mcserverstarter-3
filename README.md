@@ -4,7 +4,7 @@
 - [Setup](##### To use it for ur seedloaf server)
 - [Prevent friends from changing code](##### To prevent them from changing the code)
 
-##### To use it for ur seedloaf server:
+#### To use it for ur seedloaf server:
 
 1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur email and seddloaf password)
 
@@ -17,7 +17,7 @@
 3)Add your friends as collaborators.
 
 
-##### To prevent them from changing the code:
+#### To prevent them from changing the code:
 
 1)Go to settings>branchs>branch protection rule>Require status check>select "fail-job" or type if not appearred.
 
