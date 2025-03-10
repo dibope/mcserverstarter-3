@@ -1,8 +1,8 @@
 ### Runs entirely on github no need to download 
 #### (only thing u need to do is add email and password)
 ## Table of contents:
-- [Setup](##### To use it for ur seedloaf server)
-- [Prevent friends from changing code](##### To prevent them from changing the code)
+- [Setup](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-use-it-for-ur-seedloaf-server)
+- [Prevent friends from changing code](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-prevent-them-from-changing-the-code)
 
 #### To use it for ur seedloaf server:
 
