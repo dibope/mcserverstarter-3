@@ -106,7 +106,8 @@ try:
     # Scroll down to make sure the button loads
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(2)
-
+    primary_buttons = driver.find_elements(By.CSS_SELECTOR, "button.btn.btn-primary")
+    print(f"Found {len(primary_buttons)} primary buttons")
     # Wait until the button is present in the DOM
     startworld = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "button.btn.btn-primary")))
     
