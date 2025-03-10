@@ -2,7 +2,7 @@
 #### (only thing u need to do is add email and password)
 ### Table of contents:
 - [Setup](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-use-it-for-ur-seedloaf-server)
-- [Prevent friends from changing code](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-prevent-them-from-changing-the-code) (make sure u do this to!)
+- [Prevent friends from changing code](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-prevent-them-from-changing-the-code) (Make sure u do this too!)
 
 ### To use it for ur seedloaf server:
 
