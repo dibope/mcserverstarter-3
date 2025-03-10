@@ -12,13 +12,17 @@
 
 ( No one can see them after u set so it's really a secret)
 
-2)Click Start the mc Server then Run workflow. Refresh page to view the run.
+![repo_secrets1](https://github.com/dibope/mcserverstarter-3/blob/main/.github/workflows/Images/repo_secrets1.jpg)
 
+2)Click Start the mc Server then Run workflow. Refresh page to view the run.
+![start_mc](https://github.com/dibope/mcserverstarter-3/blob/main/.github/workflows/Images/startmc.jpg)
 3)Add your friends as collaborators.
 
 
 #### To prevent them from changing the code:
 
 1)Go to settings>branchs>branch protection rule>Require status check>select "fail-job" or type if not appearred.
-
+![fail_job1](https://github.com/dibope/mcserverstarter-3/blob/main/.github/workflows/Images/fail_job1.jpg)
+![fail_job2](https://github.com/dibope/mcserverstarter-3/blob/main/.github/workflows/Images/fail_job2.jpg)
 2)Set ur friends with read only access
+
