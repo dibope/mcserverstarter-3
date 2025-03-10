@@ -102,7 +102,7 @@ try:
     wait = WebDriverWait(driver, 30)
     # Ensure the button is visible
     #startworld = wait.until(EC.visibility_of_element_located((By.XPATH, "//button[contains(@class, 'btn-primary')]")))
-    startworld = driver.find_element(By.CSS_SELECTOR, "button.btn-primary")
+    startworld = driver.find_element(By.CSS_SELECTOR, "button.btn.btn-primary")
     
     # Now ensure it’s clickable
     startworld = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn-primary")))
