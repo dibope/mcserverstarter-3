@@ -98,17 +98,28 @@ except Exception as e:
     print(f"Error occurred(password): {e}")
 #---------------------------
 try:
-    # Wait for the start button to be visible
     wait = WebDriverWait(driver, 30)
-    # Ensure the button is visible
-    #startworld = wait.until(EC.visibility_of_element_located((By.XPATH, "//button[contains(@class, 'btn-primary')]")))
-    startworld = driver.find_element(By.CSS_SELECTOR, "button.btn-primary")
+
+    # Ensure the page is fully loaded
+    wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+
+    # Scroll down to make sure the button loads
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(2)
+
+    # Wait until the button is present in the DOM
+    startworld = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "button.btn.btn-primary")))
     
-    # Now ensure it’s clickable
-    startworld = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn-primary")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", startworld)
+    # Ensure the button is visible
+    startworld = wait.until(EC.visibility_of(startworld))
+
+    # Scroll to the button
+    driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", startworld)
+
+    # Click using JavaScript (safer for headless mode)
     driver.execute_script("arguments[0].click();", startworld)
-    print("Clicked start")
+
+    print("Clicked the Start button!")
     time.sleep(2)
 
 except Exception as e:
