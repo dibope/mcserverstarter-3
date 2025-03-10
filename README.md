@@ -4,7 +4,7 @@
 - [Setup](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-use-it-for-ur-seedloaf-server)
 - [Prevent friends from changing code](https://github.com/dibope/mcserverstarter-3/blob/main/README.md#to-prevent-them-from-changing-the-code) (Make sure u do this too!)
 
-### To use it for ur seedloaf server:
+### To use it for ur seedloaf server: (Setup)
 
 1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur email and seddloaf password)
 
