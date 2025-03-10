@@ -1,5 +1,9 @@
 ### Runs entirely on github no need to download 
 #### (only thing u need to do is add email and password)
+## Table of contents:
+- [Setup](#To use it for ur seedloaf server)
+- [Prevent friends from changing code](#To prevent them from changing the code)
+
 ##### To use it for ur seedloaf server:
 
 1)Fork this and create 2 repository secrets named USERNAME, PASSWORD.(ur email and seddloaf password)
