@@ -91,9 +91,8 @@ try:
     driver.execute_script("arguments[0].click();", password)
     password.send_keys(passwordsec)
     password.send_keys(Keys.RETURN)
-    
     # Optional: Wait to observe behavior (debugging)
-    #time.sleep(8)
+    time.sleep(8)
     print("entered password")
 except Exception as e:
     print(f"Error occurred(password): {e}")
