@@ -1,3 +1,4 @@
+# This doesn't work anymore, i have created another repo [here](https://github.com/dibope/mcserverstarter)
 ## Runs entirely on github no need to download 
 #### (only thing u need to do is add email and password)
 ### Table of contents:
